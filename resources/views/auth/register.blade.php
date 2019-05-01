@@ -1,0 +1,52 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+	<div class="row">
+			<div class="col-md-5 mx-auto">
+        <div id="second">
+        <div class="myform form ">
+            <div class="logo mb-3">
+                <div class="col-md-12 text-center">
+                    <h1 >Signup</h1>
+                </div>
+            </div>
+            <form method="POST" action="{{ route('register') }}">
+              @csrf
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus placeholder="Enter email">
+                    @if ($errors->has('email'))
+                      <span class="invalid-feedback">
+                        <strong>{{ $errors->first('email') }}</strong>
+                      </span>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Password</label>
+                    <input type="password" name="password" id="password"  class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" value="{{ old('password') }}" aria-describedby="emailHelp" placeholder="Enter Password">
+                    @if ($errors->has('password'))
+                      <span class="invalid-feedback">
+                        <strong>{{ $errors->first('password') }}</strong>
+                      </span>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Password Confirmation</label>
+                    <input type="password" name="password_confirmation" required autocomplete="new-password" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
+                </div>
+                <div class="col-md-12 text-center mb-3">
+                    <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Get Started</button>
+                </div>
+                <div class="col-md-12 ">
+                    <div class="form-group">
+                        <p class="text-center"><a href="{{route('login')}}" id="signin">Already have an account?</a></p>
+                    </div>
+                </div>
+                </div>
+            </form>
+        </div>
+    </div>
+  </div>
+</div>
+@endsection
