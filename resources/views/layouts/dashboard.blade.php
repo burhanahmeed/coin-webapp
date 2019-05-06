@@ -58,7 +58,13 @@
               <i class="nc-icon nc-touch-id"></i>
               <p>Profile</p>
             </a>
-          </li>          
+          </li>
+          <li class="{{ request()->is('lain-lain') ? 'active' : '' }}">
+            <a href="/lain-lain">
+              <i class="nc-icon nc-align-center"></i>
+              <p>Lainnya</p>
+            </a>
+          </li>
           <form action="{{route('logout')}}" method="post" id="logout">
           @csrf
           <li> 

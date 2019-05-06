@@ -28,6 +28,10 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/wallet', 'Dashboard@index');        
         Route::get('/profile', 'ProfileController@index');
         Route::get('/history', 'HistoryController@index');
+        Route::get('/lain-lain', 'LainnyaController@index');
+        Route::get('/lain-lain/my-bill', 'LainnyaController@mybill');
+        Route::get('/lain-lain/my-charity', 'LainnyaController@mycharity');
+        Route::get('/lain-lain/my-ticket', 'LainnyaController@myticket');
     });    
     Route::post('/validate-profile', 'HomeController@storeNewProfile')->name('newProfile');
 });
